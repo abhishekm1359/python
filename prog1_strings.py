@@ -1,0 +1,32 @@
+str1 = "RV College"
+str2 = " Of "
+str3 = " Engineering"
+
+print("1. Repetation")
+print(str1 * 4)
+print("\n")
+print("2. Concateing two strings")
+print(str1 + str2 +  str3)
+print("\n")
+print("3. Uppercase")
+print(str1.upper())
+print("\n")
+print("4. Lowercase")
+print(str1.lower())
+print("\n")
+print("5. Index Value")
+print(str1[4])
+print("\n")
+print("6. Splitting")
+print(str1.split())
+print("\n")
+print("7.Reversing")
+print(str1[::-1])
+print("\n")
+print("8. Word count")
+print(str3.count('e'))
+print("\n9. Iterative")
+for i in str3:
+ print(i)
+print("\nString Membership")
+print("R" in str1)
