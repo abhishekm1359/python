@@ -1,29 +1,33 @@
 import time
+
 def timeit(func):
- def timeout(*args, **kw):
-  print("*************Before timeit  decorator***********")
-  print(" ")
-  time_s = time.time()
-  result = func(*args, **kw)
-  time_e = time.time()
-  minutes,seconds = divmod((time_e-time_s), 60)
-  print(minutes,seconds)
-  print("time taken %8.2f" % ((time_e-time_s)*10**6))
-  print(" ")
-  print("*************After timeit decorator*************")
-  return result
- return timeout
+    def timed(*args, **kwargs):
+        start_time = time.time()
+        print("Start time\t", start_time)
+        
+        result = func(*args, **kwargs)
+        
+        end_time = time.time()
+        print("End time\t", end_time)
+        
+        total_time = ( end_time - start_time ) * 10 ** 6
+        print("Total time\t %8.2f" % total_time)
+        
+        return result
+    return timed
 
 @timeit
 def fib():
-        a,b=0,1
-        while(1):
-                yield a
-                a,b=b,a+b
+    a = 0
+    b = 1
+    while True:
+        yield a
+        a,b=b,a+b
 
-num=int(input("Enter the number for fibonacci series : "))
+num = int(input("Enter limit: "))
 fibonacci = fib()
 
 for x in range(num):
-        print (next(fibonacci))
+    print (next(fibonacci))
+
 
